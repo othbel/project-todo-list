@@ -11,6 +11,7 @@ pipeline {
             steps {
                 sh 'npm cache clean --force '
                 // sh 'chown -R 114:119 "~/.npm"'
+                sh 'echo $USER'
                 sh 'npm install'
             }
         }

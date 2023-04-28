@@ -1,6 +1,6 @@
 pipeline {
-    agent docker {
-        image 'node:alpine'
+    agent {
+        docker { image 'node:alpine' }
     }
     stages {
         stage "Checkout repo" {

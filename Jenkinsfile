@@ -1,15 +1,19 @@
 pipeline {
-    agent {
-        any { image 'node:alpine' }
-    }
+    agent any
+
     stages {
-        stage "Checkout repo" {
+        stage ("Checkout repo") {
+            agent {
+                docker {
+                    image 'node:alpine'
+                }
+            }
             steps {
                 git 'https://github.com/othbel/project-todo-list'
             }
             
         }
-        stage "List project" {
+        stage ("List project") {
             steps {
                 sh 'ls project-todo-list'
             }

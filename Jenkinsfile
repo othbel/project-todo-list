@@ -12,7 +12,8 @@ pipeline {
                 sh 'npm cache clean --force '
                 // sh 'chown -R 114:119 "~/.npm"'
                 echo "${env.USER}"
-                sh 'ls .'
+                echo "${env.HOME}"
+                sh 'ls -la "${env.HOME}"'
                 sh 'npm install'
             }
         }

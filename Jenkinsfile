@@ -14,6 +14,7 @@ pipeline {
                 echo "${env.USER}"
                 echo "${env.HOME}"
                 sh 'ls -laR /var/lib/jenkins/workspace'
+                sh 'rm -r node_modules'
                 sh 'npm install'
             }
         }

@@ -18,10 +18,19 @@ pipeline {
         //         sh 'npm test'
         //     }
         // }
-        stage ("Build") {
+        stage ("Docker Build") {
             agent any
             steps {
                 sh 'docker build -t othbel/todo-list-app .'
+            }
+        }
+        stage ("Docker Push") {
+            agent any
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'Docker Hub Creds', passwordVariable: 'passwordHub', usernameVariable: 'userHub')]) {
+                    sh "docker login -u ${env.userHub} -p ${env.passwordHub}"
+                    sh "docker push othbel/todo-list-app:latest"
+                }
             }
         }
     }

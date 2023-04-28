@@ -13,7 +13,7 @@ pipeline {
                 // sh 'chown -R 114:119 "~/.npm"'
                 echo "${env.USER}"
                 echo "${env.HOME}"
-                sh 'ls -la /var/lib/jenkins/workspace/Todo\ List\ pipeline'
+                sh 'ls -la "/var/lib/jenkins/workspace/Todo\ List\ pipeline"'
                 sh 'npm install'
             }
         }

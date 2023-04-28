@@ -13,7 +13,7 @@ pipeline {
                 // sh 'chown -R 114:119 "~/.npm"'
                 echo "${env.USER}"
                 echo "${env.HOME}"
-                sh 'ls -la "${env.HOME}"'
+                sh 'ls -la "${HOME}"'
                 sh 'npm install'
             }
         }

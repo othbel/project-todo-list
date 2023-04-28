@@ -4,10 +4,16 @@ pipeline {
     }
     stages {
         stage "Checkout repo" {
-            git 'https://github.com/othbel/project-todo-list'
+            steps {
+                git 'https://github.com/othbel/project-todo-list'
+            }
+            
         }
-        stage {
-            sh 'ls project-todo-list'
+        stage "List project" {
+            steps {
+                sh 'ls project-todo-list'
+            }
+            
         }
     }
 }

@@ -40,7 +40,7 @@ pipeline {
                 withCredentials([string(credentialsId: 'kubeconfig', variable: 'kubeconfig')]) {
                 // some block
                 }
-                    sh "kubectl --kubeconfig ${env.kubeconfig} -f ."
+                    sh "kubectl --kubeconfig ${env.kubeconfig} apply -f ."
             }
         }
     }

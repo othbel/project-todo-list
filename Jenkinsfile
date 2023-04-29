@@ -38,7 +38,7 @@ pipeline {
             
             steps {
                 withCredentials([string(credentialsId: 'kubeconfig', variable: 'kubeconfig')]) {
-                    sh "kubectl --kubeconfig ${env.kubeconfig} apply -f ."
+                    sh "kubectl --kubeconfig ${env.kubeconfig} apply -f charts/."
                 }    
             }
         }
